@@ -9,7 +9,7 @@
 using System;
 using System.Collections.Generic;
 
-public class Solution682
+public class Solution684
 {
     public int CalPoints(string[] ops)
     {
