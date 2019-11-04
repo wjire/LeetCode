@@ -2,12 +2,17 @@
 
 namespace Demo
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var r = new Solution().Reverse(123);
-            Console.WriteLine(r);
+            //int x = 1;
+            //Console.WriteLine(new Solution().IsPalindrome(x));
+            //x = 11;
+            //Console.WriteLine(new Solution().IsPalindrome(x));
+            int x = 3211323;
+            Console.WriteLine(new Solution().IsPalindrome(x));
+
             Console.ReadKey();
         }
     }
