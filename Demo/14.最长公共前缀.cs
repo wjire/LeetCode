@@ -44,6 +44,10 @@ public class Solution
 {
     public string LongestCommonPrefix(string[] strs)
     {
+        if (strs == null || strs.Length == 0)
+        {
+            return string.Empty;
+        }
         if (strs.Length == 1)
         {
             return strs[0];
@@ -59,20 +63,24 @@ public class Solution
         string res = string.Empty;
         for (int i = 0; i < min.Length; i++)
         {
-            for (int j = 1; j <= min.Length; j++)
+            for (int j = min.Length; j - i > 0; j--)
             {
-                string s = min.Substring(i, j);
-                if (pops.Exists(e => e != s))
+                string s = min.Substring(i, j - i);
+
+                bool flag = true;
+                foreach (string pop in pops)
                 {
-                    break;
-                }
-                else
-                {
-                    if (s.Length > l)
+                    if (pop.Contains(s) == false)
                     {
-                        l = s.Length;
-                        res = s;
+                        flag = false;
+                        break;
                     }
+                }
+
+                if (flag == true && s.Length > l)
+                {
+                    l = s.Length;
+                    res = s;
                 }
             }
         }
