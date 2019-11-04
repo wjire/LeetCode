@@ -46,7 +46,7 @@
 
 using System;
 
-public class Solution
+public class Solution9
 {
     public bool IsPalindrome(int x)
     {

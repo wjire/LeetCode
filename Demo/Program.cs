@@ -6,12 +6,8 @@ namespace Demo
     {
         private static void Main(string[] args)
         {
-            //int x = 1;
-            //Console.WriteLine(new Solution().IsPalindrome(x));
-            //x = 11;
-            //Console.WriteLine(new Solution().IsPalindrome(x));
-            int x = 3211323;
-            Console.WriteLine(new Solution().IsPalindrome(x));
+            var strs =new string[]{"flower", "flow", "flight"};
+            Console.WriteLine(new Solution().LongestCommonPrefix(strs));
 
             Console.ReadKey();
         }
