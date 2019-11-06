@@ -52,36 +52,60 @@ public class Solution
         {
             return strs[0];
         }
+        string res = string.Empty;
+        for (int i = 0; i < strs[0].Length; i++)
+        {
+            for (int j = 1; j < strs.Length; j++)
+            {
+                if (i > strs[j].Length - 1)
+                {
+                    return res;
+                }
+                if (strs[0][i] != strs[j][i])
+                {
+                    return res;
+                }
+            }
+
+            res += strs[0][i];
+        }
+        return res;
+    }
+
+
+    public string LongestCommonPrefix2(string[] strs)
+    {
+        if (strs == null || strs.Length == 0)
+        {
+            return string.Empty;
+        }
+        if (strs.Length == 1)
+        {
+            return strs[0];
+        }
         string min = strs.First(f => f.Length == strs.Min(m => m.Length));
         System.Collections.Generic.List<string> pops = strs.Except(new string[] { min }).ToList();
         if (pops.Count == 0)
         {
             return min;
         }
-
-        int l = 0;
         string res = string.Empty;
-        for (int i = 0; i < min.Length; i++)
+        for (int j = min.Length; j > 0; j--)
         {
-            for (int j = min.Length; j - i > 0; j--)
+            string s = min.Substring(0, j);
+            bool flag = true;
+            foreach (string pop in pops)
             {
-                string s = min.Substring(i, j - i);
-
-                bool flag = true;
-                foreach (string pop in pops)
+                if (pop.StartsWith(s) == false)
                 {
-                    if (pop.Contains(s) == false)
-                    {
-                        flag = false;
-                        break;
-                    }
+                    flag = false;
+                    break;
                 }
+            }
 
-                if (flag == true && s.Length > l)
-                {
-                    l = s.Length;
-                    res = s;
-                }
+            if (flag == true && s.Length > res.Length)
+            {
+                return s;
             }
         }
         return res;
