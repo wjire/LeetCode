@@ -40,7 +40,7 @@
 
 using System.Linq;
 
-public class Solution
+public class Solution14
 {
     public string LongestCommonPrefix(string[] strs)
     {
