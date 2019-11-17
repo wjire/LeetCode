@@ -6,6 +6,7 @@
 
 // @lc code=start
 
+
 using System;
 
 public class Solution7
@@ -22,7 +23,7 @@ public class Solution7
                 return 0;
             }
 
-            if (res < Int32.MinValue / 10 || (res == Int32.MinValue/10 && pop > 8))
+            if (res < Int32.MinValue / 10 || (res == Int32.MinValue / 10 && pop > 8))
             {
                 return 0;
             }
