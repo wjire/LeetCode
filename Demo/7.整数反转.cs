@@ -8,20 +8,47 @@
 
 using System;
 
-public class Solution
+public class Solution7
 {
     public int Reverse(int x)
     {
-        long res = 0;
+        //123 => 321
+        int res = 0;
         while (x != 0)
         {
-            res = (x % 10) + (res * 10);
-            if (res > Int32.MaxValue || res < Int32.MinValue) return 0;
+            int pop = x % 10;
+            if (res > Int32.MaxValue / 10 || (res == Int32.MaxValue / 10 && pop > 7))
+            {
+                return 0;
+            }
+
+            if (res < Int32.MinValue / 10 || (res == Int32.MinValue/10 && pop > 8))
+            {
+                return 0;
+            }
+            res = res * 10 + pop;
             x /= 10;
         }
-        return (int)res;
+        return res;
     }
 
+
+    //该算法,使用了 long 类型,不符合题目要求
+    //public int Reverse(int x)
+    //{
+    //    long res = 0;
+    //    while (x != 0)
+    //    {
+    //        res = (x % 10) + (res * 10);
+    //        if (res > Int32.MaxValue || res < Int32.MinValue) return 0;
+    //        x /= 10;
+    //    }
+    //    return (int)res;
+    //}
+
+
+
+    //该算法不优雅
     //public int Reverse(int x)
     //{
     //    int m = 1;
