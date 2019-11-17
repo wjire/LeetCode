@@ -9,8 +9,8 @@
  * Easy (56.67%)
  * Likes:    800
  * Dislikes: 0
- * Total Accepted:    190.7K
- * Total Submissions: 336.5K
+ * Total Accepted:    190.5K
+ * Total Submissions: 336.2K
  * Testcase Example:  '121'
  *
  * 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
@@ -42,25 +42,41 @@
  */
 
 // @lc code=start
-public class Solution
+
+
+using System;
+
+public class Solution9
 {
     public bool IsPalindrome(int x)
     {
-        //121
-        //12321
         if (x < 0)
         {
             return false;
         }
-        if (x < 10)
+
+        int length = 1;
+        int temp = x;
+        while (temp > 9)
         {
-            return true;
+            length++;
+            temp = temp / 10;
         }
-        if (x % 11 == 0)
+
+        while (length > 1)
         {
-            return true;
+            int t = (int)Math.Pow(10, (length - 1));
+            int left = x / t;
+            int right = x % 10;
+            if (left != right)
+            {
+                return false;
+            }
+
+            x = (x - left * t) / 10;
+            length -= 2;
         }
-        return false;
+        return true;
     }
 }
 // @lc code=end
