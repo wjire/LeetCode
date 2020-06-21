@@ -28,9 +28,44 @@
  */
 
 // @lc code=start
-public partial class Solution {
-    public int[] TwoSum(int[] nums, int target) {
-        
+
+using System.Collections.Generic;
+
+public partial class Solution
+{
+    public int[] TwoSum(int[] nums, int target)
+    {
+        var dic = new Dictionary<int, int>();
+        for (int i = 0; i < nums.Length; i++)
+        {
+            var d = target - nums[i];
+            if (dic.ContainsKey(d))
+            {
+                return new int[] { dic[d], i };
+            }
+
+            if (dic.ContainsKey(nums[i]) == false)
+            {
+                dic.Add(nums[i], i);
+            }
+        }
+        return null;
+    }
+
+
+    public int[] MyTwoSum(int[] nums, int target)
+    {
+        for (int i = 0; i < nums.Length - 1; i++)
+        {
+            for (int j = i + 1; j < nums.Length; j++)
+            {
+                if (nums[i] + nums[j] == target)
+                {
+                    return new[] { i, j };
+                }
+            }
+        }
+        return null;
     }
 }
 // @lc code=end
