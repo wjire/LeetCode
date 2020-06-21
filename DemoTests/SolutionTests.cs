@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DemoTests;
 
 namespace Tests
 {
@@ -44,6 +45,24 @@ namespace Tests
             var nums = new int[] { 0, 1, 0, 3, 12 };
             sln.MoveZeroes(nums);
             Console.WriteLine(string.Join(",", nums));
+        }
+
+        [TestMethod()]
+        public void FlipAndInvertImageTest()
+        {
+            // [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]
+            var arr = new int[][]
+            {
+                new int[] {1, 1, 0, 0},
+                new int[] {1, 0, 0, 1},
+                new int[] {0, 1, 1, 1},
+                new int[] {1, 0, 1, 0},
+            };
+            var result = sln.FlipAndInvertImage(arr);
+            foreach (var i in result)
+            {
+                i.Print();
+            }
         }
     }
 }
