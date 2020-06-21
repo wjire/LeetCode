@@ -64,5 +64,12 @@ namespace Tests
                 i.Print();
             }
         }
+
+        [TestMethod()]
+        public void HeightCheckerTest()
+        {
+            var arr = new int[] {1, 1, 4, 2, 1, 3};
+            var result = sln.HeightChecker(arr);
+        }
     }
 }

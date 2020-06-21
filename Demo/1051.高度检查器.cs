@@ -56,9 +56,67 @@
  */
 
 // @lc code=start
-public partial class Solution {
-    public int HeightChecker(int[] heights) {
 
+using System;
+using System.Linq;
+
+public partial class Solution
+{
+    //桶计数
+    //[1,1,4,2,1,3]
+    public int HeightChecker(int[] heights)
+    {
+        var arr = new int[101];
+        for (int i = 0; i < heights.Length; i++)
+        {
+            arr[heights[i]]++;
+        }
+
+        var count = 0;
+        for (int i = 0, j = 0; i < arr.Length; i++)
+        {
+            while (arr[i] > 0)
+            {
+                if (heights[j] != i)
+                {
+                    count++;
+                }
+                arr[i]--;
+                j++;
+            }
+        }
+        return count;
+    }
+
+    public int MyHeightChecker2(int[] heights)
+    {
+        var count = 0;
+        var newArr = new int[heights.Length];
+        heights.CopyTo(newArr, 0);
+        Array.Sort(newArr);
+        for (int i = 0; i < newArr.Length; i++)
+        {
+            if (newArr[i] != heights[i])
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+    public int MyHeightChecker1(int[] heights)
+    {
+        var count = 0;
+        var newArr = heights.OrderBy(o => o).ToArray();
+        for (int i = 0; i < newArr.Length; i++)
+        {
+            if (newArr[i] != heights[i])
+            {
+                count++;
+            }
+        }
+        return count;
     }
 }
 // @lc code=end
