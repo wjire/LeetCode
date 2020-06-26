@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Demo.Model;
 using DemoTests;
 
 namespace Tests
@@ -68,8 +69,48 @@ namespace Tests
         [TestMethod()]
         public void HeightCheckerTest()
         {
-            var arr = new int[] {1, 1, 4, 2, 1, 3};
+            var arr = new int[] { 1, 1, 4, 2, 1, 3 };
             var result = sln.HeightChecker(arr);
+        }
+
+        [TestMethod()]
+        public void GcdOfStringsTest()
+        {
+            var str1 = "ABCABC";
+            var str2 = "ABC";
+            var result = sln.GcdOfStrings(str1, str2);
+            Console.WriteLine(result);
+        }
+
+        [TestMethod()]
+        public void RemoveElementsTest()
+        {
+            //1->2->6->3->4->5->6
+            var head = new ListNode(1)
+            {
+                next = new ListNode(2)
+                {
+                    next = new ListNode(6)
+                    {
+                        next = new ListNode(3)
+                        {
+                            next = new ListNode(4)
+                            {
+                                next = new ListNode(5)
+                                {
+                                    next = new ListNode(6)
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            var result = sln.RemoveElements(head, 6);
+            while (result!=null)
+            {
+                Console.Write(result.val+",");
+                result = result.next;
+            }
         }
     }
 }
