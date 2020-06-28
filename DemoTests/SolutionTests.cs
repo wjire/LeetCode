@@ -1,13 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Demo.Model;
-using DemoTests;
 
-namespace Tests
+namespace DemoTests
 {
-    [TestClass()]
+    [TestClass]
     public class SolutionTests
     {
         private Solution sln = new Solution();
@@ -106,11 +103,20 @@ namespace Tests
                 }
             };
             var result = sln.RemoveElements(head, 6);
-            while (result!=null)
+            while (result != null)
             {
-                Console.Write(result.val+",");
+                Console.Write(result.val + ",");
                 result = result.next;
             }
+        }
+
+        [TestMethod]
+        public void CombinationSumTest()
+        {
+            var nums = new int[] {2, 3, 5};
+            var target = 8;
+            var result = sln.CombinationSum(nums, target);
+            Console.WriteLine(string.Join(",",result));
         }
     }
 }
