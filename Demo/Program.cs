@@ -7,7 +7,9 @@ namespace Demo
     {
         private static void Main(string[] args)
         {
-            Console.ReadKey();
+            var logic = new Solution();
+            var result = logic.CountAndSay(4);
+            Console.WriteLine(result);
         }
     }
 }
