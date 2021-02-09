@@ -7,8 +7,9 @@ namespace Demo
     {
         private static void Main(string[] args)
         {
+            var input = new[] { 2, 2, 3, 2 };
             var logic = new Solution();
-            var result = logic.CountAndSay(4);
+            var result = logic.SingleNumber(input);
             Console.WriteLine(result);
         }
     }

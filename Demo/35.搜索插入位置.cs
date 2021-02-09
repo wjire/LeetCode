@@ -45,21 +45,28 @@
 
 // @lc code=start
 
-public partial class Solution {
+public partial class Solution
+{
     //二分
-    public int SearchInsert (int[] nums, int target) {
+    public int SearchInsert(int[] nums, int target)
+    {
 
         var s = 0;
         var e = nums.Length - 1;
         var mid = s;
-        while (s <= e) {
+        while (s <= e)
+        {
             mid = s + (e - s) / 2;
-            if (nums[mid] == target) {
+            if (nums[mid] == target)
+            {
                 return mid;
             }
-            if (nums[mid] > target) {
+            if (nums[mid] > target)
+            {
                 e = mid - 1;
-            } else if (nums[mid] < target) {
+            }
+            else if (nums[mid] < target)
+            {
                 s = mid + 1;
             }
         }
@@ -67,31 +74,41 @@ public partial class Solution {
     }
 
     //二分
-    public int MySearchInsert2 (int[] nums, int target) {
+    public int MySearchInsert2(int[] nums, int target)
+    {
 
         var s = 0;
         var e = nums.Length - 1;
         var mid = 0;
-        while (s <= e) {
+        while (s <= e)
+        {
             mid = (s + e) / 2;
-            if (nums[mid] == target) {
+            if (nums[mid] == target)
+            {
                 return mid;
             }
-            if (nums[mid] > target) {
+            if (nums[mid] > target)
+            {
                 e = mid - 1;
-            } else if (nums[mid] < target) {
+            }
+            else if (nums[mid] < target)
+            {
                 s = mid + 1;
             }
         }
-        if (target > nums[mid]) {
+        if (target > nums[mid])
+        {
             return mid + 1;
         }
         return mid;
     }
 
-    public int MySearchInsert1 (int[] nums, int target) {
-        for (int i = 0; i < nums.Length; i++) {
-            if (nums[i] >= target) {
+    public int MySearchInsert1(int[] nums, int target)
+    {
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[i] >= target)
+            {
                 return i;
             }
         }

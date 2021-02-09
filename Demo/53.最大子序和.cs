@@ -29,11 +29,52 @@
  */
 
 // @lc code=start
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 public partial class Solution
 {
+    //[-2,1,-3,4,-1,2,1,-5,4]
     public int MaxSubArray(int[] nums)
     {
-        return 0;
+        if (nums == null || nums.Length == 0)
+        {
+            return 0;
+        }
+
+        if (nums.Length == 1)
+        {
+            return nums[0];
+        }
+
+        var temp = nums[0];
+        var preCount = temp;
+        var result = temp;
+        for (int i = 1; i < nums.Length; i++)
+        {
+            var num = nums[i];
+            var count = temp + num;
+            if (count >= temp)
+            {
+                temp = count;
+                continue;
+            }
+
+            if (result < count)
+            {
+                result = count;
+                continue;
+            }
+            else
+            {
+                result = temp;
+            }
+            temp = nums[i];
+        }
+
+        return result;
     }
 }
 // @lc code=end
